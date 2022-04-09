@@ -38,22 +38,22 @@ public class Game extends JFrame {
 
             @Override
             public void keyPressed(KeyEvent e) {
-                if(e.getKeyChar() == 'w'){
+                if(e.getKeyChar() == 'w' ||  e.getKeyCode() == 38){
                     isStart = true;
                     player.up();
                     repaint();
                 }
-                if(e.getKeyChar() == 'd'){
+                if(e.getKeyChar() == 'd'|| e.getKeyCode() == 39){
                     isStart = true;
                     player.left();
                     repaint();
                 }
-                if(e.getKeyChar() == 's'){
+                if(e.getKeyChar() == 's'|| e.getKeyCode() == 40){
                     player.down();
                     isStart = true;
                     repaint();
                 }
-                if(e.getKeyChar() == 'a'){
+                if(e.getKeyChar() == 'a'|| e.getKeyCode() == 37){
                     isStart = true;
                     player.right();
                     repaint();
@@ -69,8 +69,6 @@ public class Game extends JFrame {
 
             }
         });
-
-
 
     }
 
@@ -209,7 +207,6 @@ public class Game extends JFrame {
             g.drawImage(imageCell, x, y, CELL_PIXEL_SIZE, CELL_PIXEL_SIZE, null, null);
 
         }
-
 
     }
 
