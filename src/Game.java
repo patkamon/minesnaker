@@ -6,24 +6,23 @@ import java.awt.event.KeyListener;
 
 public class Game extends JFrame {
 
+
     private int boardSize = 10;
     private GridUI gridUI;
 
     private int score;
-
     private Snake player;
     private Fruit fruit;
 
     private boolean isStart;
     private boolean notOver;
+
     private Thread thread;
     private long delayed = 1000/3;
 
 
     public Game(){
-        player = new Snake();
-        fruit = new Fruit(boardSize);
-        score = 0;
+        setup();
         gridUI = new GridUI();
         add(gridUI);
         pack();
@@ -60,11 +59,7 @@ public class Game extends JFrame {
                     repaint();
                 }
                 if(e.getKeyCode() == 82 && e.getKeyChar() == 'r'){
-                    player = new Snake();
-                    fruit = new Fruit(boardSize);
-                    isStart = false;
-                    notOver = true;
-                    score = 0;
+                    setup();
                     repaint();
                 }
             }
@@ -79,10 +74,17 @@ public class Game extends JFrame {
 
     }
 
-    public void start(){
-        setVisible(true);
+    public void setup(){
+        // setup for starting game
+        player = new Snake();
+        fruit = new Fruit(boardSize);
+        score = 0;
         isStart = false;
         notOver = true;
+    }
+
+    public void start(){
+        setVisible(true);
         thread = new Thread(){
             @Override
             public void run(){
