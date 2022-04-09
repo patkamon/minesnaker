@@ -3,12 +3,9 @@ import javax.swing.*;
 import java.awt.*;
 import java.awt.event.KeyEvent;
 import java.awt.event.KeyListener;
-import java.awt.event.MouseAdapter;
-import java.awt.event.MouseEvent;
 
 public class Game extends JFrame {
 
-    private Board board;
     private int boardSize = 10;
     private GridUI gridUI;
 
@@ -24,7 +21,6 @@ public class Game extends JFrame {
 
 
     public Game(){
-        board = new Board(boardSize);
         player = new Snake();
         fruit = new Fruit(boardSize);
         score = 0;
@@ -64,7 +60,6 @@ public class Game extends JFrame {
                     repaint();
                 }
                 if(e.getKeyCode() == 82 && e.getKeyChar() == 'r'){
-                    board = new Board(boardSize);
                     player = new Snake();
                     fruit = new Fruit(boardSize);
                     isStart = false;
